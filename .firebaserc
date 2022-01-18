@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "nodewar-b8275": {
+      "hosting": {
+        "nodewar": [
+          "nodewar-b8275"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "nodewar-b8275"
+  }
+}
