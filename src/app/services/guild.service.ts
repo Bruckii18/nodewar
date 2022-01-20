@@ -7,15 +7,8 @@ import { GuildModel } from '../models/GuildModel';
   providedIn: 'root'
 })
 export class GuildService {
-  guildsCollection: AngularFirestoreCollection<GuildModel>;
-  guilds: Observable<GuildModel[]>;
+  public guilds: Observable<GuildModel[]>;
   constructor(public afs: AngularFirestore) {
-    this.guilds = this.afs.collection('guilds').valueChanges();
-  }
-
-  getGuilds() {
-    return this.guilds;
+    this.guilds = this.afs.collection('guilds').valueChanges() as Observable<GuildModel[]>;
   }
 }
-
-

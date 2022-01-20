@@ -1,1 +1,3 @@
-<p>guilds works!</p>
+<ul>
+  <li *ngFor="let guild of data | async">{{ guild.name }}</li>
+</ul>
