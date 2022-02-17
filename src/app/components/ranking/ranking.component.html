@@ -1,0 +1,60 @@
+<section class="relative py-16 bg-blueGray-50">
+  <div class="w-full mb-12 px-4">
+    <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded
+   text-white">
+      <div class="block w-full overflow-x-auto ">
+        <table class="items-center w-full bg-transparent border-collapse">
+          <thead>
+          <tr>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-red-800 text-white border-red-700">Name</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-red-800 text-white border-red-700">Attendance</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-red-800 text-white border-red-700">Average GS</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-red-800 text-white border-red-700">Diplomats</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-red-800 text-white border-red-700">Language/s </th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-red-800 text-white border-red-700">Allianceguilds</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let guild of data | async"
+              [ngClass]="{
+              'bg-red-800':guild.tier === 'S',
+              'bg-red-600':guild.tier === 'A',
+              'bg-orange-600':guild.tier === 'B+',
+              'bg-orange-400':guild.tier === 'B',
+              'bg-green-800':guild.tier === 'C'
+               }">
+            <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+              <span class="ml-3 font-bold text-white"> {{guild.name}} </span></th>
+
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">100</td>
+
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              {{guild.averageGs}}+
+            </td>
+
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              <div class="flex">
+                <img src="data:image/png;base64,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"
+                     alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow cursor-pointer">
+              </div>
+            </td>
+
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              <div class="flex items-center">
+                <span class="mr-2" *ngFor="let la of guild.language">{{ la }}</span>
+              </div>
+            </td>
+
+             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              <div class="flex items-center">
+                <span class="mr-2">{{guild.allianceguilds}}</span>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

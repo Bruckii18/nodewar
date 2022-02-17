@@ -14,6 +14,7 @@ export const environment = {
     measurementId: 'G-SL6EGN3LSR',
   },
   production: false,
+  discordAuth: "https://discord.com/api/oauth2/authorize?client_id=943507734484090950&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Flogin-callback&response_type=code&scope=identify%20email",
 };
 
 
